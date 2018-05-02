@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MVCMovie.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MVCMovie
 {
@@ -22,6 +24,8 @@ namespace MVCMovie
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddDbContext<MoviesDBContext>
+                (options => options.UseSqlServer(Configuration.GetConnectionString("MoviesDBConnectie")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,8 +33,8 @@ namespace MVCMovie
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
+                app.UseDeveloperExceptionPage();
             }
             else
             {

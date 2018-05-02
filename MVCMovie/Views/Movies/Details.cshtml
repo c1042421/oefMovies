@@ -1,0 +1,28 @@
+﻿@model Movie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<table>
+    <tr>
+        <th>@(Html.DisplayNameFor(model => model.Title)) </th>
+        <td>@Html.DisplayFor(model => model.Title)</td>
+    </tr>
+    <tr>
+        <th>@(Html.DisplayNameFor(model => model.ReleaseDate))</th>
+        <td>@Html.DisplayFor(model => model.ReleaseDate)</td>
+    </tr>
+    <tr>
+        <th>@(Html.DisplayNameFor(model => model.Genre))</th>
+        <td>@Html.DisplayFor(model => model.Genre)</td>
+    </tr>
+    <tr>
+        <th>@(Html.DisplayNameFor(model => model.Price))</th>
+        <td>@Html.DisplayFor(model => model.Price)</td>
+    </tr>
+    <tr>
+        <th>@(Html.DisplayNameFor(model => model.Rating))</th>
+        <td>@Html.DisplayFor(model => model.Rating.Name)</td>
+    </tr>
+</table>
